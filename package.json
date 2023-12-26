@@ -7,8 +7,8 @@
   "scripts": {
     "start": "node ./main.js",
     "server": "nodemon ./main.js",
-    "css": "postcss public/css/tailwind.css -o public/css/app.css"
-  },
+    "css": "postcss public/css/tailwind.css -o public/css/app.css --watch"
+},
   "author": "",
   "license": "ISC",
   "dependencies": {

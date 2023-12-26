@@ -17,7 +17,6 @@ app.use(express.static('public'))
 //middleware
 app.use('/auth', usuarioRoutes)
 
-
 //definir un puerto y arrancar el proyecto
 const port = 3000;
 
