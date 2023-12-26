@@ -3,12 +3,16 @@
 import express from 'express'
 import usuarioRoutes from './routes/usuarioRoutes.js'
 
+
 //crear la app...
 const app = express()
 
-//middleware
-app.use('/', usuarioRoutes)
+//habilitar pug
+app.set('view engine', 'pug')
+app.set('views', './views')
 
+//middleware
+app.use('/auth', usuarioRoutes)
 
 
 //definir un puerto y arrancar el proyecto
