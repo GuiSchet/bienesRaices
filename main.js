@@ -1,16 +1,15 @@
 //const express = require('express') commonJS
 //ecmascript modules:
 import express from 'express'
+import usuarioRoutes from './routes/usuarioRoutes.js'
+
 //crear la app...
 const app = express()
 
-app.get('/', function(req, res) {
-    res.send('Hola mundounuouuouou!!')
-});
+//middleware
+app.use('/', usuarioRoutes)
 
-app.get('/nosotros', function(req, res) {
-    res.send('informacion de nosotros')
-});
+
 
 //definir un puerto y arrancar el proyecto
 const port = 3000;
