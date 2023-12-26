@@ -23,3 +23,8 @@ use utiliza para buscar en todas las rutas q inicien en /
 template engine
 npm install pug
 controller
+
+tailwindcss
+npm i -D tailwindcss autoprefixer postcss postcss-cli
+npx tailwindcss init -p
+generar script en package.json
