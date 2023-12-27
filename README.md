@@ -28,3 +28,5 @@ tailwindcss
 npm i -D tailwindcss autoprefixer postcss postcss-cli
 npx tailwindcss init -p
 generar script en package.json
+
+ORM y mySQL
