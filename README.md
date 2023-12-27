@@ -30,3 +30,4 @@ npx tailwindcss init -p
 generar script en package.json
 
 ORM y mySQL
+npm i sequelize mysql2
