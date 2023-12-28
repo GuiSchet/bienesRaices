@@ -31,3 +31,6 @@ generar script en package.json
 
 ORM y mySQL
 npm i sequelize mysql2
+
+ambiente env
+npm i dotenv

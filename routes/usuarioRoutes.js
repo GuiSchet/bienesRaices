@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.get('/login', formularioLogin);
 router.get('/registro', formularioRegistro)
-router.get('/olvide-password', formularioOlvidepassword)
+router.get('/olvide-password', formularioOlvidePassword)
 
 
 export default router
