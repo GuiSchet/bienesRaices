@@ -34,3 +34,6 @@ npm i sequelize mysql2
 
 ambiente env
 npm i dotenv
+
+validacion d usuarios
+npm i express-validator
