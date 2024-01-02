@@ -34,8 +34,10 @@ const registrar = async (req, res) => {
             }
         })
     }
+    //extraer datos
+    const { nombre, email, password } = req.body
     //verificar que el usuario no este duplicado
-    const existeUsuario = await Usuario.findOne( {where : {email: req.body.email } })
+    const existeUsuario = await Usuario.findOne( {where : { email } })
     if (existeUsuario) {
         return res.render('auth/registro', {
             pagina: 'Crear Cuenta',
@@ -47,6 +49,13 @@ const registrar = async (req, res) => {
         })
 
     }
+    // almacenar un usuario
+    await Usuario.create({
+        nombre,
+        email,
+        password,
+        token: 123
+    })
     
 }
 
