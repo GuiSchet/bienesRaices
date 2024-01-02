@@ -21,12 +21,33 @@ const registrar = async (req, res) => {
     await check('repetir_password').equals('password').withMessage('La contraseña no es igual').run(req)
 
     let resultado = validationResult(req)
+
     //verificar que el usuario este vacio
+    if (!resultado.isEmpty()) {
+        //Hay errores
+        return res.render('auth/registro', {
+            pagina: 'Crear Cuenta',
+            errores: resultado.array(),
+            usuario: {
+                nombre: req.body.nombre,
+                email: req.body.email
+            }
+        })
+    }
+    //verificar que el usuario no este duplicado
+    const existeUsuario = await Usuario.findOne( {where : {email: req.body.email } })
+    if (existeUsuario) {
+        return res.render('auth/registro', {
+            pagina: 'Crear Cuenta',
+            errores: [{msg: 'El usuario ya esta registrado'}],
+            usuario: {
+                nombre: req.body.nombre,
+                email: req.body.email
+            }
+        })
 
-
-    res.json(resultado.array())
-    const usuario = await Usuario.create(req.body)
-    res.json(usuario)
+    }
+    
 }
 
 const formularioOlvidePassword = (req, res) => {

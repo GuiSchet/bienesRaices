@@ -37,3 +37,7 @@ npm i dotenv
 
 validacion d usuarios
 npm i express-validator
+
+hash de passwords en la base d datos.
+npm i bcrypt
+
