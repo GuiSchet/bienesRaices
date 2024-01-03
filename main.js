@@ -1,11 +1,21 @@
 //const express = require('express') commonJS
 //ecmascript modules:
 import express from 'express'
+import csrf from 'csurf'
+import cookieParser from 'cookie-parser'
 import usuarioRoutes from './routes/usuarioRoutes.js'
 import db from './config/db.js'
 
 //crear la app...
 const app = express()
+
+// habilitar Cookie Parser
+
+app.use( cookieParser() )
+
+//habilitar CSRF
+
+app.use( csrf({cookie: true}))
 
 //habilitar lectura de datos de formularios
 app.use( express.urlencoded({extended: true}))

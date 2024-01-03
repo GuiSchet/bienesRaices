@@ -10,8 +10,10 @@ const formularioLogin = (req, res) => {
 }
 
 const formularioRegistro = (req, res) => {
+
     res.render('auth/registro', {
-        pagina: 'Crear Cuenta'
+        pagina: 'Crear Cuenta',
+        csrfToken: req.csrfToken()
     })
 }
 
@@ -74,11 +76,26 @@ const registrar = async (req, res) => {
 
 //funcion que comprueba una cuenta
 
-const confirmar = (req, res) => {
+const confirmar = async (req, res) => {
     const { token } = req.params;
     //verificar si el token es valido
+    const usuario = await Usuario.findOne({where: {token}})
 
+    if (!usuario) {
+        return res.render('auth/confirmar-cuenta', {
+            pagina: 'Error al confirmar tu cuenta',
+            mensaje: 'Hubo un error al confirmar tu cuenta, intenta de nuevo.',
+            error: true
+        })
+    }
     //confirmar la cuenta
+    usuario.token = null;
+    usuario.confirmado = true;
+    await usuario.save()
+    return res.render('auth/confirmar-cuenta', {
+        pagina: 'Cuenta confirmada',
+        mensaje: 'La cuenta se confirmo correctamente'
+    })
 }
 
 const formularioOlvidePassword = (req, res) => {

@@ -44,3 +44,5 @@ npm i bcrypt
 enviar emails con nodemailer y mailtrap para simular y probar emails
 npm i nodemailer
 
+cross side request CSRF
+npm i csurf cookie-parser
