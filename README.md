@@ -41,3 +41,6 @@ npm i express-validator
 hash de passwords en la base d datos.
 npm i bcrypt
 
+enviar emails con nodemailer y mailtrap para simular y probar emails
+npm i nodemailer
+
