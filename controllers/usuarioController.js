@@ -31,6 +31,7 @@ const registrar = async (req, res) => {
         //Hay errores
         return res.render('auth/registro', {
             pagina: 'Crear Cuenta',
+            csrfToken: req.csrfToken(),
             errores: resultado.array(),
             usuario: {
                 nombre: req.body.nombre,
@@ -45,6 +46,7 @@ const registrar = async (req, res) => {
     if (existeUsuario) {
         return res.render('auth/registro', {
             pagina: 'Crear Cuenta',
+            csrfToken: req.csrfToken(),
             errores: [{msg: 'El usuario ya esta registrado'}],
             usuario: {
                 nombre: req.body.nombre,
@@ -69,6 +71,7 @@ const registrar = async (req, res) => {
 
     //mostrar mensaje de confirmacion
     res.render('templates/mensaje', {
+        csrfToken: req.csrfToken(),
         pagina: 'Cuenta creada correctamente.',
         mensaje: 'Hemos enviado un email de confirmación, presiona en el enlace.'
     })  
